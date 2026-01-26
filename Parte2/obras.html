@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | The Fanfic Archives</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGACION (NAVBAR) -->
+    <!-- fixed-top: deja la barra pegada arriba aunque bajemos con el scroll -->
+    <!-- bg-oscuro: mi clase personalizada para el fondo casi negro -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-oscuro borde-dorado fixed-top">
+        <div class="container">
+            <!-- navbar-brand: clase para el logotipo o nombre del sitio -->
+            <a class="navbar-brand fs-3" href="index.html">
+                <i class="bi bi-quill-pen me-2"></i>The Archives
+            </a>
+
+            <!-- Boton hamburguesa para moviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenido del menu que se pliega en moviles -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ms-auto: empuja los enlaces a la derecha -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="obras.html">Obras</a></li>
+
+                    <!-- Dropdown: Menu desplegable -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Fandoms
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Harry Potter</a></li>
+                            <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                            <li><a class="dropdown-item" href="#">Marvel MCU</a></li>
+                            <li><a class="dropdown-item" href="#">Hazbin Hotel</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Squid Game</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <!--Boton de Modo Claro o Oscuro-->
+                    <li class="nav-item">
+                        <button id="btnTema" class="btn btn-borde-dorado btn-sm ms-3">
+                            Modo Claro
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+
+    <!-- pt-5 y my-5: espacio para la navbar fija -->
+    <div class="container my-5 pt-5">
+
+        <!-- CABECERA -->
+        <header class="text-center py-4 mb-5">
+            <!-- display-4: titulo grande -->
+            <h1 class="display-4 letra-elegante texto-dorado">El Archivo Prohibido</h1>
+            <p class="text-muted">Explora los manuscritos custodiados en nuestra biblioteca.</p>
+        </header>
+
+        <!-- GRID PRINCIPAL -->
+        <!-- row: fila -->
+        <!-- g-4: separacion entre columnas -->
+        <div class="row g-4">
+
+            <!-- COLUMNA FILTROS -->
+
+            <!-- col-lg-3: sidebar en pantallas grandes -->
+            <div class="col-lg-3">
+                <!-- sticky-top: se mantiene visible al hacer scroll -->
+                <div class="tarjeta-oscura p-4 rounded borde-dorado sticky-top" style="top: 100px;">
+                    <h5 class="texto-dorado mb-3">
+                        <i class="bi bi-filter-left me-2"></i>Filtrar por
+                    </h5>
+
+                    <!-- Select -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted">Idioma</label>
+                        <select class="form-select entrada-oscura">
+                            <option>Español</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+
+                    <!-- Checkboxes -->
+                    <div class="mb-4">
+                        <label class="form-label small text-muted">Extensión</label>
+
+                        <!-- form-check: checkbox Bootstrap -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="oneShot">
+                            <label class="form-label small text-light" for="oneShot">One-shot</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="multicap">
+                            <label class="form-check-label small text-light" for="multicap">Multi-capítulo</label>
+                        </div>
+                    </div>
+
+                    <!-- Boton -->
+                    <button class="btn btn-dorado w-100">Aplicar Filtros</button>
+                </div>
+            </div>
+
+            <!-- COLUMNA CONTENIDO -->
+
+            <!-- col-lg-9: contenido principal -->
+            <div class="col-lg-9">
+
+                <!-- ===== TARJETA OBRA 1 ===== -->
+                <article class="card tarjeta-oscura mb-4 tarjeta-animada p-0 overflow-hidden">
+                    <!-- row g-0: sin espacio entre columnas -->
+                    <div class="row g-0">
+
+                        <!-- Imagen -->
+                        <div class="col-md-3">
+                            <img src="https://picsum.photos/id/101/300/400" class="img-fluid h-100 object-fit-cover"
+                                alt="Portada">
+                        </div>
+
+                        <!-- Contenido -->
+                        <div class="col-md-9">
+                            <div class="card-body">
+
+                                <!-- Titulo y estado -->
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="letra-elegante texto-dorado">Bajo la luz de Teyvat</h4>
+                                    <span class="badge bg-success">Completo</span>
+                                </div>
+
+                                <p class="small text-muted mb-2">
+                                    Escrito por <strong>XiaoLover</strong> | Fandom: <em>Genshin Impact</em>
+                                </p>
+
+                                <p class="card-text text-light">
+                                    Una historia sobre la soledad del Guardián Yaksha y un encuentro inesperado en el
+                                    Pantano Dihua...
+                                </p>
+
+                                <!-- Tags -->
+                                <div class="mt-3">
+                                    <span class="badge bg-secondary me-1">Angst</span>
+                                    <span class="badge bg-secondary me-1">Slow Burn</span>
+                                    <span class="badge bg-secondary me-1">Canon Compliant</span>
+                                </div>
+
+                                <!-- Interacciones -->
+                                <div class="mt-4 d-flex align-items-center justify-content-between">
+                                    <div class="texto-dorado">
+                                        <i class="bi bi-heart-fill me-1"></i> 1.2k Kudos
+                                        <i class="bi bi-chat-dots-fill ms-3 me-1"></i> 45 Comments
+                                    </div>
+
+                                    <a href="#" class="btn btn-outline-dorado btn-borde-dorado">
+                                        Leer ahora
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ===== TARJETA OBRA 2 ===== -->
+                <article class="card tarjeta-oscura mb-4 tarjeta-animada p-0 overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <img src="https://picsum.photos/id/33/300/400" class="img-fluid h-100 object-fit-cover"
+                                alt="Portada">
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="letra-elegante texto-dorado">El Octavo Horrocrux</h4>
+                                    <span class="badge bg-warning text-dark">WIP</span>
+                                </div>
+
+                                <p class="small text-muted mb-2">
+                                    Escrito por <strong>SlytherinPrince</strong> | Fandom: <em>Harry Potter</em>
+                                </p>
+
+                                <p class="card-text text-light">
+                                    ¿Qué hubiera pasado si Harry nunca hubiera abandonado el bosque? Una version
+                                    alternativa oscura.
+                                </p>
+
+                                <div class="mt-3">
+                                    <span class="badge bg-secondary me-1">Dark Fic</span>
+                                    <span class="badge bg-secondary me-1">AU</span>
+                                </div>
+
+                                <div class="mt-4 d-flex align-items-center justify-content-between">
+                                    <div class="texto-dorado">
+                                        <i class="bi bi-heart-fill me-1"></i> 890 Kudos
+                                        <i class="bi bi-chat-dots-fill ms-3 me-1"></i> 12 Comments
+                                    </div>
+
+                                    <a href="#" class="btn btn-outline-dorado btn-borde-dorado">
+                                        Leer ahora
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="bg-black text-white py-5 border-top border-secondary">
+        <div class="container text-center">
+            <h5 class="texto-dorado letra-elegante">The Fanfic Archives</h5>
+            <p class="text-muted small">2025 - Sandra W. Graña</p>
+        </div>
+    </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+
+        <div id="toastEnvio" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle me-2"></i> ¡Formulario enviado con éxito!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+        <div id="toastLimpiar" class="toast align-items-center text-white bg-info border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-trash me-2"></i> Los campos se han borrado.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+        <div id="toastError" class="toast align-items-center text-white bg-danger border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-exclamation-triangle me-2"></i> <span id="mensajeErrorTexto">Error en los
+                        datos.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mi JS -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
