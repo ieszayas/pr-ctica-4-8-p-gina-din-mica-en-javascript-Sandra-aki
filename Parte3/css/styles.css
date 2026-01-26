@@ -1,0 +1,284 @@
+/* PARTE 1 - VARIABLES COLOR */
+
+/* Variables principales de color */
+:root {
+    --color-fondo: #121212;
+    /* Fondo general */
+    --color-panel: #1e1e1e;
+    /* Fondo de tarjetas y paneles */
+    --color-dorado: #d4af37;
+    /* Color principal dorado */
+    --color-dorado-brillo: #f3c845;
+    /* Dorado mas claro para hover */
+    --color-texto: #ffffff;
+    /* Texto principal */
+    --color-texto-secundario: #bbbbbb;
+    /* Texto secundario */
+    --color-borde: #333333;
+    /* Bordes */
+}
+
+/* Variables cuando esta activo el modo claro */
+body.claro {
+    --color-fondo: #f4f4f4;
+    --color-panel: #ffffff;
+    --color-texto: #000000;
+    --color-texto-secundario: #555555;
+    --color-borde: #dddddd;
+}
+
+/* PARTE 2 - ESTILOS BASE */
+
+/* Estilos generales del body */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tipografia para titulos y navbar */
+h1,
+h2,
+h3,
+h4,
+h5,
+.navbar-brand,
+.letra-elegante {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-texto);
+}
+
+/* Texto secundario */
+.text-muted {
+    color: var(--color-texto-secundario) !important;
+}
+
+/* PARTE 3 - COMPONENTES */
+
+/* Fondo oscuro para navbar y secciones */
+.bg-oscuro {
+    background-color: #0a0a0a !important;
+}
+
+/* Tarjetas en modo oscuro */
+.tarjeta-oscura {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+/* Animacion de las tarjetas */
+.tarjeta-animada {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover de tarjetas */
+.tarjeta-animada:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-dorado) !important;
+}
+
+/* PARTE 4 - BOTONES */
+
+/* Boton dorado principal */
+.btn-dorado {
+    background-color: var(--color-dorado);
+    color: #000 !important;
+    border: none;
+    font-weight: 600;
+}
+
+/* Hover del boton dorado */
+.btn-dorado:hover {
+    background-color: var(--color-dorado-brillo);
+}
+
+/* Boton con borde dorado */
+.btn-borde-dorado {
+    color: var(--color-dorado);
+    border: 1px solid var(--color-dorado);
+}
+
+/* Hover del boton con borde */
+.btn-borde-dorado:hover {
+    background-color: var(--color-dorado);
+    color: #000 !important;
+}
+
+/* PARTE 5 - FORMULARIOS */
+
+/* Inputs oscuros */
+.entrada-oscura {
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+}
+
+/* Estilo al hacer foco en inputs */
+.entrada-oscura:focus {
+    background-color: var(--color-panel);
+    color: var(--color-texto);
+    border-color: var(--color-dorado);
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+}
+
+/* Color del placeholder */
+.entrada-oscura::placeholder {
+    color: var(--color-texto-secundario);
+}
+
+/* Flecha personalizada del select */
+.form-select.entrada-oscura {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23d4af37' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* PARTE 6 - ELEMENTOS VARIOS */
+
+/* Texto en color dorado */
+.texto-dorado {
+    color: var(--color-dorado) !important;
+}
+
+/* Bordes dorados */
+.borde-dorado {
+    border-color: var(--color-dorado) !important;
+}
+
+/* Ajustes para tablas oscuras */
+.table-dark {
+    --bs-table-bg: transparent;
+    color: var(--color-texto);
+}
+
+/* Imagenes del carrusel */
+.mi-carrusel .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Sombra encima de imagenes */
+.sombra-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* PARTE 7 - AJUSTES MODO CLARO */
+
+/* Fuerza textos claros a verse oscuros */
+body.claro .text-light,
+body.claro .form-label,
+body.claro h6.text-light,
+body.claro .card h6 {
+    color: var(--color-texto) !important;
+}
+
+/* Aclara fondos oscuros */
+body.claro .bg-oscuro,
+body.claro nav.bg-oscuro,
+body.claro section.bg-oscuro {
+    background-color: #e9ecef !important;
+    border-color: #ddd !important;
+}
+
+/* Cambia color de letras del navbar */
+body.claro .navbar-dark .navbar-nav .nav-link,
+body.claro .navbar-brand {
+    color: #333 !important;
+}
+
+/* Corrige tabla en modo claro */
+body.claro .table-dark {
+    --bs-table-bg: #ffffff;
+    --bs-table-color: #000000;
+    --bs-table-striped-bg: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+/* Footer en modo claro */
+body.claro footer.bg-black {
+    background-color: #f1f1f1 !important;
+    color: #333 !important;
+}
+
+body.claro footer .text-muted {
+    color: #666 !important;
+}
+
+/* Migas de pan */
+body.claro .breadcrumb-item.active {
+    color: #333 !important;
+}
+
+/* Boton cerrar alertas */
+body.claro .btn-close-white {
+    filter: none;
+}
+
+/* PARTE 8 - LOGIN */
+
+/* Fuerza fondo correcto en login */
+body.claro.bg-oscuro {
+    background-color: var(--color-fondo) !important;
+}
+
+/* Iconos del input group */
+body.claro .input-group-text {
+    background-color: #f8f9fa !important;
+    border-color: #ced4da !important;
+    color: #495057 !important;
+}
+
+/* Inputs del login */
+body.claro .entrada-oscura {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #ced4da !important;
+}
+
+/* Textos pequenos */
+body.claro .text-muted.small,
+body.claro p.text-muted {
+    color: #555 !important;
+}
+
+/* Tarjeta del login */
+body.claro .tarjeta-oscura {
+    background-color: #ffffff !important;
+    border-color: #dee2e6 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* PARTE 9 - CATALOGO / OBRAS */
+
+/* Texto descriptivo en modo claro */
+body.claro .card-text.text-light,
+body.claro .form-check-label.text-light {
+    color: #212529 !important;
+}
+
+/* Badges secundarios */
+body.claro .badge.bg-secondary {
+    background-color: #6c757d !important;
+    color: white !important;
+}
+
+/* Selects de filtros */
+body.claro .form-select.entrada-oscura {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border-color: #ced4da !important;
+}
+
+/* Tarjeta de filtros */
+body.claro .tarjeta-oscura {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+    color: #212529 !important;
+}

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fanfic Archives | Dark Academia</title>
+
+    <!-- Bootstrap 5 CSS: Carga los estilos base del framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Iconos de Bootstrap (bi): Necesario para los iconos de los cards (el fuego, etc...) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Fuentes de Google: Lato para texto normal y Playfair Display para titulos -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Enlace a mi hoja de css -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- BARRA DE NAVEGACION (NAVBAR) -->
+    <!-- fixed-top: deja la barra pegada arriba aunque bajemos con el scroll -->
+    <!-- bg-oscuro: mi clase personalizada para el fondo casi negro -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-oscuro borde-dorado fixed-top">
+        <div class="container">
+            <!-- navbar-brand: clase para el logotipo o nombre del sitio -->
+            <a class="navbar-brand fs-3" href="index.html">
+                <i class="bi bi-quill-pen me-2"></i>The Archives
+            </a>
+
+            <!-- Boton hamburguesa para moviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Contenido del menu que se pliega en moviles -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- ms-auto: empuja los enlaces a la derecha -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="obras.html">Obras</a></li>
+
+                    <!-- Dropdown: Menu desplegable -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Fandoms
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Harry Potter</a></li>
+                            <li><a class="dropdown-item" href="#">Genshin Impact</a></li>
+                            <li><a class="dropdown-item" href="#">Marvel MCU</a></li>
+                            <li><a class="dropdown-item" href="#">Hazbin Hotel</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Squid Game</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <!--Boton de Modo Claro o Oscuro-->
+                    <li class="nav-item">
+                        <button id="btnTema" class="btn btn-borde-dorado btn-sm ms-3">
+                            Modo Claro
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <!-- pt-5 y mt-5: añado margen superior extra para que la barra fija no tape el contenido -->
+    <div class="container my-5 pt-5">
+        <div id="relojDigital" class="text-center fw-bold my-2"></div>
+        <!-- Migas de pan (Breadcrumb) para navegacion -->
+        <nav aria-label="breadcrumb" class="mt-4 mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" class="texto-dorado text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="texto-dorado text-decoration-none">Archivo</a></li>
+                <li class="breadcrumb-item active text-light" aria-current="page">Dashboard</li>
+            </ol>
+        </nav>
+
+        <!-- SISTEMA DE REJILLA (GRID SYSTEM) - PARTE 2 -->
+        <!-- row: fila contenedora de columnas -->
+        <!-- g-4: gap de nivel 4, separa las columnas entre si -->
+        <div class="row g-4">
+
+            <!-- COLUMNA 1: SIDEBAR (Barra Lateral) -->
+            <!-- col-xl-2: Ocupa 2 de 12 espacios SOLO en pantallas Extra Grandes (XL) -->
+            <!-- d-none d-xl-block: Se oculta en movil/tablet y aparece solo en XL -->
+            <div class="col-xl-2 d-none d-xl-block">
+                <!-- sticky-top: Hace que el menu lateral baje contigo al hacer scroll -->
+                <!-- top: 100px: para que no se choque con la navbar fija -->
+                <div class="sticky-top" style="top: 100px; z-index: 1;">
+                    <h6 class="texto-dorado letra-elegante border-bottom border-secondary pb-2 mb-3">Navegacion</h6>
+
+                    <!-- list-group: lista de botones verticales estilo bootstrap -->
+                    <div class="list-group tarjeta-oscura mb-4">
+                        <!-- active: marca el boton seleccionado -->
+                        <a href="#"
+                            class="list-group-item list-group-item-action bg-transparent text-light border-secondary active">
+                            <i class="bi bi-compass me-2"></i> Explorar
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action bg-transparent text-light border-secondary">
+                            <i class="bi bi-star me-2"></i> Top Kudos
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action bg-transparent text-light border-secondary">
+                            <i class="bi bi-bookmark me-2"></i> Guardados
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action bg-transparent text-light border-secondary">
+                            <i class="bi bi-collection me-2"></i> Series
+                        </a>
+                    </div>
+
+                    <h6 class="texto-dorado letra-elegante border-bottom border-secondary pb-2 mb-3">Tags Populares</h6>
+                    <!-- d-flex flex-wrap: hace que las etiquetas se ajusten si no caben -->
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-secondary">Angst</span>
+                        <span class="badge bg-secondary">Slow Burn</span>
+                        <span class="badge bg-secondary">AU Moderno</span>
+                        <span class="badge bg-secondary">Enemies to Lovers</span>
+                        <span class="badge bg-secondary">Fluff</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA 2: CONTENIDO PRINCIPAL (Centro) -->
+            <!-- col-12: En movil ocupa todo el ancho -->
+            <!-- col-md-7: En tablet ocupa 7 columnas -->
+            <!-- col-xl-6: En pantalla gigante ocupa 6 columnas (deja sitio al sidebar) -->
+            <div class="col-12 col-md-7 col-xl-6">
+
+                <!-- Alerta de aviso (Componente adicional) -->
+                <div class="alert alert-warning alert-dismissible fade show tarjeta-oscura text-light borde-dorado mb-4"
+                    role="alert">
+                    <i class="bi bi-info-circle-fill me-2 texto-dorado"></i>
+                    <strong>Aviso del Archivo:</strong> Las normas de publicacion se han actualizado.
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+                </div>
+
+                <!-- CARRUSEL AVANZADO (5 Diapositivas) -->
+                <!-- carousel-fade: efecto de desvanecimiento suave -->
+                <div id="heroCarousel" class="carousel slide carousel-fade mb-5 shadow-lg borde-dorado mi-carrusel"
+                    data-bs-ride="carousel">
+                    <!-- Indicadores inferiores -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                            class="active"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+                    </div>
+
+                    <div class="carousel-inner rounded">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active" data-bs-interval="4000">
+                            <img src="https://picsum.photos/id/1073/1200/500" class="d-block w-100" alt="Biblioteca">
+                            <div class="sombra-imagen"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="display-5 letra-elegante texto-dorado">Archivos de Hogwarts</h2>
+                                <p class="lead">Magia antigua y secretos prohibidos.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="https://picsum.photos/id/1018/1200/500" class="d-block w-100" alt="Montañas">
+                            <div class="sombra-imagen"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="display-5 letra-elegante texto-dorado">Cronicas de Teyvat</h2>
+                                <p class="lead">Viaja por las siete naciones.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="https://picsum.photos/id/134/1200/500" class="d-block w-100" alt="Luces">
+                            <div class="sombra-imagen"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="display-5 letra-elegante texto-dorado">Ecos del Multiverso</h2>
+                                <p class="lead">Variantes del MCU.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="https://picsum.photos/id/437/1200/500" class="d-block w-100" alt="Hotel">
+                            <div class="sombra-imagen"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="display-5 letra-elegante texto-dorado">Redencion Infernal</h2>
+                                <p class="lead">Caos en el Hotel Hazbin.</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-item" data-bs-interval="4000">
+                            <img src="https://picsum.photos/id/227/1200/500" class="d-block w-100" alt="Juego">
+                            <div class="sombra-imagen"></div>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="display-5 letra-elegante texto-dorado">Juegos Mortales</h2>
+                                <p class="lead">Squid Game: Edicion Final.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fila interna de Tarjetas Pequeñas -->
+                <!-- Anido un row dentro de la columna central para poner 3 tarjetas -->
+                <div class="row g-3 mb-5">
+                    <div class="col-sm-4">
+                        <div class="card tarjeta-oscura h-100 p-2 text-center tarjeta-animada">
+                            <i class="bi bi-fire fs-2 texto-dorado"></i>
+                            <h6 class="mt-2 text-light">Trending</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card tarjeta-oscura h-100 p-2 text-center tarjeta-animada">
+                            <i class="bi bi-bookmark-heart fs-2 texto-dorado"></i>
+                            <h6 class="mt-2 text-light">Favoritos</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card tarjeta-oscura h-100 p-2 text-center tarjeta-animada">
+                            <i class="bi bi-pen fs-2 texto-dorado"></i>
+                            <h6 class="mt-2 text-light">Escribir</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLA DE DATOS (10 Filas) -->
+                <h3 class="texto-dorado letra-elegante mb-3 border-bottom border-secondary pb-2">
+                    <i class="bi bi-table me-2"></i>Feed de Actualizaciones
+                </h3>
+                <input type="text" id="inputBusqueda" class="form-control mb-3" placeholder="Buscar obra...">
+                <div class="table-responsive rounded shadow-sm">
+                    <table class="table table-dark table-striped table-hover align-middle mb-0">
+                        <thead>
+                            <tr class="texto-dorado">
+                                <th>Fic</th>
+                                <th>Fandom</th>
+                                <th>Autor</th>
+                                <th>Estado</th>
+                                <th>Leer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaObrasCuerpo">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- COLUMNA 3: FORMULARIO (Derecha) -->
+            <!-- col-12: En movil ocupa todo y se va abajo del contenido -->
+            <!-- col-md-5: En tablet ocupa el hueco derecho restante -->
+            <!-- col-xl-4: En pantalla grande ocupa la columna derecha -->
+            <div class="col-12 col-md-5 col-xl-4">
+                <!-- sticky-top: El formulario tambien es fijo al bajar -->
+                <div class="card tarjeta-oscura p-4 border-dorado sticky-top shadow-lg" style="top: 100px; z-index: 1;">
+                    <h4 class="texto-dorado letra-elegante mb-3">
+                        <i class="bi bi-pencil-square me-2"></i>Publicar
+                    </h4>
+                    <p class="text-muted small mb-4">Contribuye al archivo. Rellena todos los campos.</p>
+
+                    <form action="#" method="POST">
+                        <!-- 1. Campo de Texto -->
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label text-light">Titulo de la Obra</label>
+                            <!-- entrada-oscura: clase CSS nueva para el input gris -->
+                            <input type="text" class="form-control entrada-oscura" id="titulo"
+                                placeholder="Ej: Sombras del Ayer" required>
+                        </div>
+
+                        <!-- 2. Campo Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-light">Tu Email</label>
+                            <input type="email" class="form-control entrada-oscura" id="email"
+                                placeholder="nombre@correo.com" required>
+                        </div>
+
+                        <!-- 3. Selector (Select) -->
+                        <div class="mb-3">
+                            <label for="fandomSelect" class="form-label text-light">Fandom Principal</label>
+                            <select class="form-select entrada-oscura" id="fandomSelect" required>
+                                <option selected disabled value="">Elige un universo...</option>
+                                <option value="hp">Harry Potter</option>
+                                <option value="genshin">Genshin Impact</option>
+                                <option value="mcu">Marvel MCU</option>
+                                <option value="hazbin">Hazbin Hotel</option>
+                                <option value="squid">Squid Game</option>
+                            </select>
+                        </div>
+
+                        <!-- 4. Radio Buttons (Clasificacion) -->
+                        <div class="mb-3">
+                            <label class="form-label text-light d-block">Clasificacion (Rating)</label>
+                            <div class="d-flex gap-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="rating" id="ratingG" value="G"
+                                        checked>
+                                    <label class="form-check-label text-muted" for="ratingG">G (Todos)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="rating" id="ratingT" value="T">
+                                    <label class="form-check-label text-muted" for="ratingT">T (+13)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="rating" id="ratingM" value="M">
+                                    <label class="form-check-label text-muted" for="ratingM">M (+18)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Checkbox -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="wipCheck">
+                            <label class="form-check-label text-muted" for="wipCheck">Trabajo en Progreso (WIP)</label>
+                        </div>
+                        <div class="mb-3">
+                            <label>Color de tabla:</label>
+                            <input type="color" id="selectorColor" class="form-control form-control-color">
+                        </div>
+                        <!-- 6. Area de Texto (Textarea) -->
+                        <div class="mb-3">
+                            <label for="sinopsis" class="form-label text-light">Sinopsis Breve</label>
+                            <textarea class="form-control entrada-oscura" id="sinopsis" rows="4"
+                                placeholder="Escribe un resumen..."></textarea>
+                            <small id="contadorCaracteres" class="form-text text-light">0 caracteres</small>
+                        </div>
+                        <!-- Boton de envio y limpiar + Toasts -->
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+                            <button type="reset" id="btnLimpiar" class="btn btn-outline-secondary me-md-2">
+                                <i class="bi bi-eraser me-2"></i>Limpiar
+                            </button>
+                            <button type="submit" class="btn btn-dorado">
+                                <i class="bi bi-send me-2"></i>Enviar Manuscrito
+                            </button>
+                        </div>
+
+                        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                            <div id="toastLimpiar" class="toast align-items-center text-white bg-secondary border-0"
+                                role="alert">
+                                <div class="d-flex">
+                                    <div class="toast-body">Campos borrados correctamente.</div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                        data-bs-dismiss="toast"></button>
+                                </div>
+                            </div>
+
+                            <div id="toastEnvio" class="toast align-items-center text-white bg-success border-0"
+                                role="alert">
+                                <div class="d-flex">
+                                    <div class="toast-body">¡Formulario verificado y enviado con éxito!</div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                        data-bs-dismiss="toast"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div> <!-- Fin del Row Principal del Grid -->
+    </div> <!-- Fin del Container -->
+
+    <!-- SECCION NUEVA (3 Columnas de Servicios) -->
+    <!-- container-fluid: para que el fondo ocupe todo el ancho -->
+    <section class="container-fluid bg-oscuro border-top border-secondary py-5 mt-5">
+        <div class="container">
+            <div class="row text-center g-4">
+
+                <!-- Columna 1 -->
+                <div class="col-md-4">
+                    <div class="h-100 p-4 tarjeta-oscura rounded shadow-sm tarjeta-animada">
+                        <i class="bi bi-feather fs-1 texto-dorado mb-3"></i>
+                        <h3 class="letra-elegante text-light h4">Escritura Libre</h3>
+                        <p class="text-muted">Herramientas avanzadas para editar y formatear tus historias con total
+                            libertad creativa.</p>
+                    </div>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="col-md-4">
+                    <div class="h-100 p-4 tarjeta-oscura rounded shadow-sm tarjeta-animada">
+                        <i class="bi bi-people fs-1 texto-dorado mb-3"></i>
+                        <h3 class="letra-elegante text-light h4">Comunidad Global</h3>
+                        <p class="text-muted">Conecta con lectores y autores de todo el mundo mediante comentarios y
+                            kudos.</p>
+                    </div>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="col-md-4">
+                    <div class="h-100 p-4 tarjeta-oscura rounded shadow-sm tarjeta-animada">
+                        <i class="bi bi-archive fs-1 texto-dorado mb-3"></i>
+                        <h3 class="letra-elegante text-light h4">Preservacion</h3>
+                        <p class="text-muted">Tus obras estan respaldadas en servidores seguros. Somos un archivo
+                            permanente.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-5 border-top border-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="texto-dorado letra-elegante">The Fanfic Archives</h5>
+                    <p class="text-muted small">
+                        &copy; Sandra W. Graña | Desarrollo de Interfaces
+                    </p>
+                    <p class="text-muted small">&copy; 2025 - Curso DAM 2</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="texto-dorado letra-elegante">Navegacion</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-decoration-none text-muted hover-dorado">Inicio</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted hover-dorado">Normas</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted hover-dorado">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3 text-md-end">
+                    <h5 class="texto-dorado letra-elegante">Siguenos</h5>
+                    <div class="fs-4">
+                        <a href="#" class="text-muted me-3 hover-dorado"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-muted me-3 hover-dorado"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted hover-dorado"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+
+        <div id="toastEnvio" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle me-2"></i> ¡Formulario enviado con éxito!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+        <div id="toastLimpiar" class="toast align-items-center text-white bg-info border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-trash me-2"></i> Los campos se han borrado.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+        <div id="toastError" class="toast align-items-center text-white bg-danger border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-exclamation-triangle me-2"></i> <span id="mensajeErrorTexto">Error en los
+                        datos.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mi JS -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
